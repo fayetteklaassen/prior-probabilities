@@ -8,6 +8,7 @@
 ## data files
 *.csv
 *.xlsx
+*.Rhistory
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
