@@ -7,8 +7,7 @@ library("plyr")
 
 ### Initial settings ####
 ### Set working directory to source file location ####
-setwd("Pilot")
-data <- read.csv("RawData.csv", header = T, sep = ";")
+data <- read.csv("Data/RawData.csv", header = T, sep = ";")
 
 cbbPalette <- c("#e66101","#fdb863", "#b2abd2","#5e3c99")
 figHeight <- 7.5
@@ -96,7 +95,7 @@ g_apple <- ggplot(data = Long, aes(x = Scenario, y = Probability)) +
   scale_fill_manual(values = cbbPalette)
 g_apple
 
-ggsave("probApple.pdf", width = 6.33, height = figHeight, units = "in")
+ggsave("Figures/probApple.pdf", width = 6.33, height = figHeight, units = "in")
 
 #### Figure 3: Flanker task ####
 data$FS.1 <- .5
@@ -157,7 +156,7 @@ gg_flank <- ggplot(data = Flanker,
   scale_fill_manual(values = cbbPalette)
 gg_flank 
 
-ggsave("Flanker.pdf", width = 5.83, height = figHeight, units = "in")
+ggsave("Figures/Flanker.pdf", width = 5.83, height = figHeight, units = "in")
 
 #### Figure 4: Own hypotheses ####
 plaus_own <- t(apply(data[,c(50:53)], 1, 
@@ -208,6 +207,4 @@ g_own <- ggplot(data = OwnData,
   scale_fill_manual(values = cbbPalette)
 g_own 
 
-ggsave("Own.pdf", width = 5.83, height = figHeight, units = "in")
-
-setwd("..")
+ggsave("Figures/Own.pdf", width = 5.83, height = figHeight, units = "in")
